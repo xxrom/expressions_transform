@@ -1,23 +1,25 @@
+import {stringToBoolean, stringToFloat, stringToInt} from './convertors';
+
 // Base
 class Transform {
   constructor(A, B, C, D, E, F) {
+    this.A = stringToBoolean(A);
+    this.B = stringToBoolean(B);
+    this.C = stringToBoolean(C);
+    this.D = stringToFloat(D);
+    this.E = stringToInt(E);
+    this.F = stringToInt(F);
+
     if (
-      typeof A !== "boolean" ||
-      typeof B !== "boolean" ||
-      typeof C !== "boolean" ||
-      typeof D !== "number" ||
-      typeof E !== "number" ||
-      typeof F !== "number"
+      typeof this.A !== "boolean" ||
+      typeof this.B !== "boolean" ||
+      typeof this.C !== "boolean" ||
+      typeof this.D !== "number" ||
+      typeof this.E !== "number" ||
+      typeof this.F !== "number"
     ) {
       console.error("Input type error");
     }
-
-    this.A = A;
-    this.B = B;
-    this.C = C;
-    this.D = D;
-    this.E = E;
-    this.F = F;
 
     this.findMap = {
       HisEqualTo: {
@@ -95,9 +97,17 @@ class TransformCustom2 extends TransformCustom1 {
   }
 }
 
-export {TransformCustom2};
 
-if (1) {
+export const transformRequest = (data) => {
+  const {A, B, C, D, E, F} = data;
+
+  const transform = new TransformCustom2(A, B, C, D, E, F);
+
+  return transform.transform();
+}
+
+
+if (0) {
   // check 'M'
   const correctAns = {H: "M", K: 3.02};
 
@@ -107,7 +117,7 @@ if (1) {
   console.log(ans, ans.H === correctAns.H, ans.K === correctAns.K);
 }
 
-if (1) {
+if (0) {
   // check 'P'
   const correctAns = {H: "P", K: 2.02};
 
@@ -121,7 +131,7 @@ if (1) {
   // check 'T'
   const correctAns = {H: "T", K: 1.0};
 
-  const t = new TransformCustom2(true, true, false, 2.0, 15, 15);
+  const t = new TransformCustom2(true, true, false, 3.0, 15, 15);
   const ans = t.transform();
 
   console.log(ans, ans.H === correctAns.H, ans.K === correctAns.K);
