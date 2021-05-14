@@ -7,9 +7,17 @@
     "delay": "1"
   },
   "scripts": {
-    "dev": "nodemon --exec node main.js ./main.js"
+    "devPy": "nodemon --exec node main.js ./main.js",
+    "dev": "backpack",
+    "build": "backpack"
   },
   "dependencies": {
+    "backpack-core": "^0.8.4",
+    "dotenv": "^9.0.2",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^10.0.0",
     "nodemon": "*"
   }
 }

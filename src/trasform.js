@@ -95,6 +95,8 @@ class TransformCustom2 extends TransformCustom1 {
   }
 }
 
+export {TransformCustom2};
+
 if (1) {
   // check 'M'
   const correctAns = {H: "M", K: 3.02};
