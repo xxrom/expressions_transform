@@ -2,11 +2,14 @@
   "name": "expressions_transform",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
-,
-  "nodemonConfig": { "delay": "1" },
-  "scripts": 
-  {
-        "dev": "nodemon --exec python3 main.py ./main.py" 
-  }, "dependencies": { "nodemon": "*" } 
+  "license": "MIT",
+  "nodemonConfig": {
+    "delay": "1"
+  },
+  "scripts": {
+    "dev": "nodemon --exec node main.js ./main.js"
+  },
+  "dependencies": {
+    "nodemon": "*"
+  }
 }
