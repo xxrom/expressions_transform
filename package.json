@@ -9,7 +9,7 @@
   "scripts": {
     "devPy": "nodemon --exec node main.js ./main.js",
     "dev": "backpack",
-    "build": "backpack",
+    "build": "backpack build",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
