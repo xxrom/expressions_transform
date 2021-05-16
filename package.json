@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "backpack",
     "build": "backpack build",
+    "start": "node ./build/main.js",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
