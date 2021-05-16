@@ -1,12 +1,12 @@
-import Koa from 'koa';
-import Router from 'koa-router';
-import logger from 'koa-morgan';
-import koaBody from 'koa-body';
-import env from 'dotenv';
+import Koa from "koa";
+import Router from "koa-router";
+import logger from "koa-morgan";
+import koaBody from "koa-body";
+import env from "dotenv";
 
-import {transformRequest} from './trasform';
+import {transformRequest} from "./transform";
 
-env.config()
+env.config();
 
 const server = new Koa();
 const router = new Router();
@@ -22,21 +22,21 @@ const PORT = process.env.PORT || 4444;
   => {"status":200,"message":"transform","data":{"H":"T","K":1.5}
  */
 
-router.post('/transform', koaBody(), (ctx) => {
-  console.log('tranform', ctx.request.body);
+router.post("/transform", koaBody(), (ctx) => {
+  console.log("tranform", ctx.request.body);
   const body = ctx.request.body;
 
   const processedData = transformRequest(body);
 
   ctx.body = {
     status: 200,
-    message: 'transform',
+    message: "transform",
     data: processedData,
   };
 });
 
 server
-  .use(logger('tiny'))
+  .use(logger("tiny"))
   .use(router.routes())
   .use(router.allowedMethods())
   .use(async (ctx, next) => {
@@ -47,5 +47,5 @@ server
     console.log(`${ctx.method}: ${ctx.url} - ${ms}ms`);
   })
   .listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`)
-  })
+    console.log(`Server started on port ${PORT}`);
+  });

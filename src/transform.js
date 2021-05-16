@@ -1,4 +1,4 @@
-import {stringToBoolean, stringToFloat, stringToInt} from './convertors';
+import {stringToBoolean, stringToFloat, stringToInt} from "./convertors";
 
 // Base
 class Transform {
@@ -81,7 +81,7 @@ class TransformCustom1 extends Transform {
 }
 
 // Custom 2
-class TransformCustom2 extends TransformCustom1 {
+export class TransformCustom2 extends TransformCustom1 {
   constructor(...args) {
     super(...args);
 
@@ -97,42 +97,10 @@ class TransformCustom2 extends TransformCustom1 {
   }
 }
 
-
 export const transformRequest = (data) => {
   const {A, B, C, D, E, F} = data;
 
   const transform = new TransformCustom2(A, B, C, D, E, F);
 
   return transform.transform();
-}
-
-
-if (0) {
-  // check 'M'
-  const correctAns = {H: "M", K: 3.02};
-
-  const t = new TransformCustom2(true, false, true, 1, 2, 2);
-  const ans = t.transform();
-
-  console.log(ans, ans.H === correctAns.H, ans.K === correctAns.K);
-}
-
-if (0) {
-  // check 'P'
-  const correctAns = {H: "P", K: 2.02};
-
-  const t = new TransformCustom2(true, true, true, 1, 2, 2);
-  const ans = t.transform();
-
-  console.log(ans, ans.H === correctAns.H, ans.K === correctAns.K);
-}
-
-if (1) {
-  // check 'T'
-  const correctAns = {H: "T", K: 1.0};
-
-  const t = new TransformCustom2(true, true, false, 3.0, 15, 15);
-  const ans = t.transform();
-
-  console.log(ans, ans.H === correctAns.H, ans.K === correctAns.K);
-}
+};
