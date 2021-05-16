@@ -13,14 +13,9 @@ const router = new Router();
 
 const PORT = process.env.PORT || 4444;
 
-/*
-  curl -d '{"link": "/moskovskaya_" }' -H "Content-Type: application/json" -X POST http://localhost:4444/transform
-*/
-/*
-  curl -d '{"A": "true", "B": "true", "C": "false", "D": "3.0", "E": "15", "F": "15" }' -H "Content-Type: application/json" -X POST http://localhost:4444/transform
-
-  => {"status":200,"message":"transform","data":{"H":"T","K":1.5}
- */
+router.get('/', (ctx) => {
+  ctx.body = 'hello from heroku =)';
+})
 
 router.post("/transform", koaBody(), (ctx) => {
   console.log("tranform", ctx.request.body);
