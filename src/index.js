@@ -14,12 +14,13 @@ const router = new Router();
 const PORT = process.env.PORT || 4444;
 
 router.get('/', (ctx) => {
-  ctx.body = 'hello from heroku =)';
+  ctx.body = 'Hello from heroku =)';
 })
 
 router.post("/transform", koaBody(), (ctx) => {
-  console.log("tranform", ctx.request.body);
   const body = ctx.request.body;
+
+  console.log("transform: ", body);
 
   const processedData = transformRequest(body);
 
