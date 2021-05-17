@@ -4,10 +4,10 @@
 - NodeJS
 - Server: Koa (-router, -body, -morgan), backpack-core
 - Tests: Jest
-- CI/CD: github Actions after building / testing => upload to heroku
+- CI/CD: github Actions [build => tests => deploy to heroku]
 
 
-# Run on heroku server
+# Execute data on heroku server
 
 1. In terminal:
 ```

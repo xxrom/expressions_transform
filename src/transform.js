@@ -2,14 +2,23 @@ import {stringToBoolean, stringToFloat, stringToInt} from "./convertors";
 
 // Base
 class Transform {
-  constructor(A, B, C, D, E, F) {
+  constructor(...args) {
+    this.setArgs(...args);
+
+    this.initFindMap();
+  }
+
+
+  setArgs(A, B, C, D, E, F) {
     this.A = stringToBoolean(A);
     this.B = stringToBoolean(B);
     this.C = stringToBoolean(C);
     this.D = stringToFloat(D);
     this.E = stringToInt(E);
     this.F = stringToInt(F);
+  }
 
+  isInputDataValid() {
     if (
       typeof this.A !== "boolean" ||
       typeof this.B !== "boolean" ||
@@ -19,8 +28,14 @@ class Transform {
       typeof this.F !== "number"
     ) {
       console.error("Input type error");
+
+      return false;
     }
 
+    return true
+  }
+
+  initFindMap() {
     this.findMap = {
       HisEqualTo: {
         M: {
@@ -56,6 +71,10 @@ class Transform {
   }
 
   transform() {
+    if (!this.isInputDataValid()) {
+      return null;
+    }
+
     const variantsForH = Object.keys(this.findMap.HisEqualTo);
 
     const ans = this.getAnswer(variantsForH);
@@ -96,6 +115,8 @@ export class TransformCustom2 extends TransformCustom1 {
     };
   }
 }
+
+// We could customize TransformCustom2 too if it will be necessary
 
 export const transformRequest = (data) => {
   const {A, B, C, D, E, F} = data;
