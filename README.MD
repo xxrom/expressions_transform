@@ -18,3 +18,7 @@ curl -d '{"A": "true", "B": "true", "C": "false", "D": "3.0", "E": "15", "F": "1
 ```
 {"status":200,"message":"transform","data":{"H":"T","K":1.5}
 ```
+
+# Heroku server URL:
+[HerokuRootLink](https://desolate-garden-94838.herokuapp.com)
+[HerokuTransformLink](https://desolate-garden-94838.herokuapp.com/transform)
