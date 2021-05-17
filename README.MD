@@ -19,6 +19,13 @@ curl -d '{"A": "true", "B": "true", "C": "false", "D": "3.0", "E": "15", "F": "1
 {"status":200,"message":"transform","data":{"H":"T","K":1.5}
 ```
 
+# Server methods:
+- POST method on "https://desolate-garden-94838.herokuapp.com/transform"
+- - for running main calculations
+
+- GET method on "https://desolate-garden-94838.herokuapp.com"
+- - just for health check
+
 # Heroku server URL:
 - [HerokuRootLink](https://desolate-garden-94838.herokuapp.com)
 
